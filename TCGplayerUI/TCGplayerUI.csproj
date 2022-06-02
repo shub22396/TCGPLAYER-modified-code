@@ -21,6 +21,10 @@
     <None Remove="Results\**" />
     <None Remove="TestRunner\" />
   </ItemGroup>
+  
+ <Target Name="CopyCustomContent" AfterTargets="AfterBuild">
+    <Copy SourceFiles="app.config" DestinationFiles="$(OutDir)\testhost.dll.config" />
+</Target>
 
   <ItemGroup>
     <PackageReference Include="BrowserStackLocal" Version="2.0.0" />
